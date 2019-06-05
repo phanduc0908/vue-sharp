@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>254330</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <!-- Vue conditions -->
+  <div id="parent">
+    <h3 v-if="rainy">The weather is rainy</h3>
+    <h3 v-else>The weather is sunny</h3>
+  </div>
+
+  <!-- Vue loops -->
+  <div id="loop">
+    <h3>List member in sharp team</h3>
+    <p v-for="name in names">{{name.text}}</p>
+  </div>
+
+  <!-- Vue methods -->
+  <div id="method">
+    <p>{{number}}</p>
+    <button v-on:click="count">Count click</button>
+  </div>
+
+  <script>
+    var vm = new Vue({
+      el: '#parent',
+      data: {
+        rainy: true
+      }
+    });
+
+    var loop = new Vue({
+      el: '#loop',
+      data: {
+        names: [
+          { text: 'Phan Van Duc' },
+          { text: 'Pham Ngoc Hoa' },
+          { text: 'Tran Quang Nhat' },
+          { text: 'Do Quang Hiep' },
+          { text: 'Nguyen Xuan Cuong' }
+        ]
+      }
+    });
+    
+    var method = new Vue({
+      el:'#method',
+      data:{
+        number: 0
+      },
+      methods: {
+        count: function(){
+          this.number = this.number + 1;
+        }
+      },
+    });
+  
+  </script>
+</body>
+
+</html>
