@@ -3,7 +3,7 @@
     <h3 v-if="isSunny">The weather is sunny</h3>
     <h3 v-else>The weather is rainy</h3>
     <h3>List member in Sharp team</h3>
-    <p v-for="name in names">{{name.text}}</p>
+    <p v-for="name in names" :key="name">{{name.text}}</p>
     <p>{{number}}</p>
     <button v-on:click="count">Count click</button>
     <p v-show="isSunny==true">Vue sample is show</p>
@@ -11,10 +11,10 @@
 
     <toggle-button @change="change"/>
     <div v-if="isShow">
-      <p v-for="item of foods">{{item}}</p>
+      <p v-for="item of foods" :key="item">{{item}}</p>
     </div>
     <div v-else>
-      <p v-for="item of person">{{item}}</p>
+      <p v-for="item of person" :key="item">{{item}}</p>
     </div>
   </div>
 </template>
