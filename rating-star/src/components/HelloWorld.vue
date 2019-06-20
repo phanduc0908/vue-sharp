@@ -12,12 +12,13 @@
         ></rate-star>
       </div>
     </div>
-    <span class="status"
-       v-if="this.rating > 0"
-       :class="{aqua: this.rating === 1, antiquewhite: this.rating === 2, 
+    <span
+      class="status"
+      v-if="this.rating > 0"
+      :class="{aqua: this.rating === 1, antiquewhite: this.rating === 2, 
         azure: this.rating === 3, burlywood: this.rating === 4, 
         cadetblue: this.rating === 5}"
-       >{{name}}</span>
+    >{{name}}</span>
   </div>
 </template>
 
@@ -41,17 +42,17 @@ export default {
   methods: {
     showRate(rating) {
       this.rating = rating;
-      if (rating === 1) this.name = "Very Bad";
-      else if (rating === 2) this.name = "Bad";
-      else if (rating === 3) {
+      if (rating === 1) 
+        this.name = "Very Bad";
+      else if (rating === 2) 
+        this.name = "Bad";
+      else if (rating === 3)
         this.name = "Not bad";
-      } else if (rating === 4) {
-        this.name = "Good";
-      } else if (rating === 5) {
+      else if (rating === 4)
+         this.name = "Good";
+      else if (rating === 5) 
         this.name = "Very good";
-      } else {
-        this.name = "";
-      }
+      else this.name = "";
     }
   }
 };
