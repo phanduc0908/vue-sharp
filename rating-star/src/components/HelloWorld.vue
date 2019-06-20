@@ -1,20 +1,29 @@
 <template>
   <div class="hello">
-    <h1>Reating in Vue</h1>
+    <h1>Rating in Vue</h1>
     <div class="rate">
-      <rate-star 
-        v-model="rating" 
-        v-bind:star-size="90"
-        v-bind:max-rating="5"
-        >
-      </rate-star>
+      <div @mouseleave="showRate">
+        <rate-star
+          :star-size="50"
+          :max-rating="5"
+          :show-rating="false"
+          :round-start-rating="false"
+          @current-rating="showRate"
+        ></rate-star>
+      </div>
     </div>
-    <h6>{{rating}}</h6>
+    <span class="status"
+       v-if="this.rating > 0"
+       :class="{aqua: this.rating === 1, antiquewhite: this.rating === 2, 
+        azure: this.rating === 3, burlywood: this.rating === 4, 
+        cadetblue: this.rating === 5}"
+       >{{name}}</span>
   </div>
 </template>
 
 <script>
 import RatingStar from "vue-star-rating";
+
 export default {
   name: "HelloWorld",
   props: {
@@ -25,12 +34,24 @@ export default {
   },
   data() {
     return {
-      rating: 3
+      rating: 0,
+      name: ""
     };
   },
   methods: {
-    showRate() {
-      console.log(this.rating);
+    showRate(rating) {
+      this.rating = rating;
+      if (rating === 1) this.name = "Very Bad";
+      else if (rating === 2) this.name = "Bad";
+      else if (rating === 3) {
+        this.name = "Not bad";
+      } else if (rating === 4) {
+        this.name = "Good";
+      } else if (rating === 5) {
+        this.name = "Very good";
+      } else {
+        this.name = "";
+      }
     }
   }
 };
@@ -53,6 +74,29 @@ a {
   color: #42b983;
 }
 .rate {
-  display: block !important;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.status {
+  position: absolute;
+  right: 37%;
+  border-radius: 10px;
+  padding: 10px;
+}
+.aqua {
+  background-color: aqua;
+}
+.antiquewhite {
+  background-color: antiquewhite;
+}
+.azure {
+  background-color: azure;
+}
+.burlywood {
+  background-color: burlywood;
+}
+.cadetblue {
+  background-color: cadetblue;
 }
 </style>
