@@ -1,6 +1,16 @@
 <template>
   <div class="hello">
     <h1>Rating in Vue</h1>
+    <input type="text" v-model="message">
+    <div>{{message}}</div>
+    <input type="checkbox" v-model="student" name id>
+    <div>{{student}}</div>
+    <select v-model="choose">
+      <option disabled>Choose one</option>
+      <option value="one">One</option>
+      <option value="two">Two</option>
+    </select>
+    <div>{{choose}}</div>
     <div class="rate">
       <div @mouseleave="showRate">
         <rate-star
@@ -36,22 +46,20 @@ export default {
   data() {
     return {
       rating: 0,
-      name: ""
+      name: "",
+      message: "Phan Van Duc",
+      student: false,
+      choose: ""
     };
   },
   methods: {
     showRate(rating) {
       this.rating = rating;
-      if (rating === 1) 
-        this.name = "Very Bad";
-      else if (rating === 2) 
-        this.name = "Bad";
-      else if (rating === 3)
-        this.name = "Not bad";
-      else if (rating === 4)
-         this.name = "Good";
-      else if (rating === 5) 
-        this.name = "Very good";
+      if (rating === 1) this.name = "Very Bad";
+      else if (rating === 2) this.name = "Bad";
+      else if (rating === 3) this.name = "Not bad";
+      else if (rating === 4) this.name = "Good";
+      else if (rating === 5) this.name = "Very good";
       else this.name = "";
     }
   }

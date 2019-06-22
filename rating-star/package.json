@@ -12,6 +12,7 @@
     "v-switch-case": "^1.0.3",
     "v-tooltip": "^2.0.2",
     "vue": "^2.6.10",
+    "vue-router": "^3.0.6",
     "vue-star-rating": "^1.6.1"
   },
   "devDependencies": {
