@@ -3,6 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
     <router-link to="/">Home</router-link>
     <router-link to="/FirstRouter">Demo router</router-link>
+    <router-link to="/Axios"></router-link>
     <router-view/>
   </div>
 </template>
