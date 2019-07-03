@@ -1,0 +1,17 @@
+[
+  {
+    "fullName": "Phan Van Duc",
+    "phoneNumber": "487634534",
+    "role": "Member"
+  },
+  {
+    "fullName": "Phan Van Huy",
+    "phoneNumber": "487634534",
+    "role": "Admin"
+  },
+  {
+    "fullName": "Phan Van Quang",
+    "phoneNumber": "487634534",
+    "role": "Member"
+  }
+]
