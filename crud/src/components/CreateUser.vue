@@ -11,10 +11,10 @@
         <div class="header">Add User</div>
         <div class="content">
           <div class="form-group">
-            <input type="text" v-model="name" placeholder="Input name" class="form-control">
+            <input type="text" v-model="name" placeholder="Username" class="form-control">
           </div>
           <div class="form-group">
-            <input type="text" v-model="phone" placeholder="Input phone" class="form-control">
+            <input type="text" v-model="phone" placeholder="Phone number" class="form-control">
           </div>
           <div class="form-group">
             <select class="form-control" v-model="role">
@@ -56,7 +56,12 @@ export default {
       this.isCreate = !this.isCreate;
     },
     SaveUser() {
-      alert(this.role);
+      var userModel = {
+        fullName: this.name,
+        phoneNumber: this.phone,
+        role: this.role
+      };
+      this.$emit('saveUser',userModel);
     }
   }
 };

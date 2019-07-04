@@ -6,10 +6,10 @@
     </div>
     <div class="row">
       <div class="col-md-9 lst-user-comp">
-        <list-user :users="filterUsers"></list-user>
+        <list-user :users="filterUsers" @userRemove="users = $event" @editUser="users = $event"></list-user>
       </div>
       <div class="col-md-3">
-        <create-user></create-user>
+        <create-user @saveUser="childSaveUser"></create-user>
       </div>
     </div>
   </div>
@@ -39,9 +39,14 @@ export default {
   computed: {
     filterUsers: function() {
       return this.users.filter(user => {
-        return user.fullName.indexOf(this.username) > -1;
+        return user.fullName.toLowerCase().indexOf(this.username.toLowerCase()) > -1;
       });
     }
+  },
+  methods:{
+    childSaveUser(user){
+      this.users.push(user);
+    },
   }
 };
 </script>
