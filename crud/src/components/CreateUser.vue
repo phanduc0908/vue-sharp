@@ -56,7 +56,7 @@ export default {
       this.isCreate = !this.isCreate;
     },
     SaveUser() {
-      var userModel = {
+      const userModel = {
         fullName: this.name,
         phoneNumber: this.phone,
         role: this.role
