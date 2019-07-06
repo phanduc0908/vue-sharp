@@ -14,18 +14,17 @@
         <tr v-for="(item, index) in users" :key="index">
           <td>{{index+1}}</td>
           <td v-if="indexEdit !== index">{{item.fullName}}</td>
-          <td v-if="indexEdit === index">
-            
+          <td v-else>
             <input type="text" v-model="username = item.fullName" class="form-control">
           </td>
 
           <td v-if="indexEdit !== index">{{item.phoneNumber}}</td>
-          <td v-if="indexEdit === index">
+          <td v-else>
             <input type="text" v-model="phone = item.phoneNumber" class="form-control">
           </td>
 
           <td v-if="indexEdit !== index">{{item.role}}</td>
-          <td v-if="indexEdit === index">
+          <td v-else>
             <select class="form-control" v-model="role = item.role">
               <option>Admin</option>
               <option>Member</option>
@@ -40,7 +39,7 @@
               @click="removeUser(index)"
             >Delete</button>
           </td>
-          <td v-if="indexEdit === index">
+          <td v-else>
             <button class="btn btn-success" @click="saveUser(index)">Save</button>
             <button class="btn btn-primary" @click="indexEdit = -1">Cancel</button>
           </td>
